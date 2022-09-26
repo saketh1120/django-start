@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BASE</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <div class="navbar-nav ">
+
+            <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+                <li><a class="navbar-brand" href="#">BRAND</a></li>
+                <li><a class="nav-item nav-link active" href="{% url 'admin:index' %}">admin</a></li>
+                <li><a class="nav-item nav-link active" href=" {% url 'first_app:users' %}">users</a></li>
+                <li><a class="nav-item nav-link active" href=" {% url 'first_app:register' %}">Register</a></li>
+
+                {% if user.is_authenticated %}
+                    <li><a class="nav-link" href="{% url 'first_app:logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a class="nav-link" href="{% url 'first_app:login' %}">Login</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="container">
+        {% block body_block %}
+        # anything outside this will be inherited if you extend
+        {% endblock %}
+    </div>
+
+</body>
+</html>

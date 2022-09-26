@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="{% static 'CSS/mystyle.css' %}">
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Lets sign you up using Django forms </h1>
+        <form  method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div>
+
+
+
+
+
+
+
+<!--    <h1> <strong>Here are the list of users and their data:</strong></h1>-->
+<!--    <div class="user_list">-->
+<!--    {% if user_list %}-->
+<!--        <ol>-->
+
+<!--                {% for user in user_list %}-->
+<!--            <li> User info:-->
+<!--                <ul>-->
+<!--                    <li> First Name:{{user.first_name}}</li>-->
+<!--                    <li>Last Name:{{user.last_name}}</li>-->
+<!--                    <li> Email:{{user.email_id}}</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            {% endfor %}-->
+<!--        </ol>-->
+<!--    {% endif %}-->
+<!--    </div>-->
+
+
+</body>
+</html>

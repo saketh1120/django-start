@@ -1,0 +1,42 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>First App</title>
+    <link rel="stylesheet" href="{% static 'CSS\mystyle.css' %}">
+</head>
+<style>
+    h1{
+    color:blue;
+    }
+    table{
+    border: 2px solid black;
+    }
+    tr{
+    border: 2px solid black;}
+</style>
+<body>
+    <h1>Hello, we are getting the below data using template tagging.</h1>
+    <div class="MVT">
+    {% if access_records %}
+    <table>
+        <thead>
+        <th>Site Name</th>
+        <th> Date Accessed</th>
+        </thead>
+        {% for acc in access_records %}
+        <tr>
+            <td>{{acc.name}}</td>
+            <td>{{acc.date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <h2>No records to show!</h2>
+    {% endif %}
+
+    </div>
+</body>
+</html>
